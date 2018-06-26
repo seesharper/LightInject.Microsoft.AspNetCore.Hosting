@@ -1,0 +1,1 @@
+# LightInject.Microsoft.AspNetCore.Hosting
