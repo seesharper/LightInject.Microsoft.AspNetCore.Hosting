@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+      <TargetFrameworks>netstandard2.0</TargetFrameworks>
+      <Authors>Bernhard Richter</Authors>
+      <Description>Enables LightInject to be used in AspNetCore applications.</Description>
+      <Copyright>Bernhard Richter</Copyright>
+      <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+      <PackageProjectUrl></PackageProjectUrl>
+      <RepositoryUrl>https://github.com/seesharper/LightInject.Microsoft.AspNetCore.Hosting</RepositoryUrl>
+      <RepositoryType>git</RepositoryType>
+      <PackageTags>Ioc Dependency-Injection Inversion-of-Control LightInject AspNetCore</PackageTags>
+      <DebugType>Full</DebugType>
+      <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.1.0" />
+    <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="2.0.7" />      
+  </ItemGroup>
+</Project>
