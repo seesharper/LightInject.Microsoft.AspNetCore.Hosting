@@ -63,7 +63,7 @@ public class Startup
         {          
         }
 	    
-    	// Use this method 	
+    	// Use this method to add services directly to LightInject
         public void ConfigureContainer(IServiceContainer container)
         {
             container.RegisterFrom<CompositionRoot>();
