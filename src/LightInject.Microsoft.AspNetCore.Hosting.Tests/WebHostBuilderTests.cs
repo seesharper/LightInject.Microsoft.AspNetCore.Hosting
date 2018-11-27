@@ -12,7 +12,7 @@ namespace LightInject.Microsoft.AspNetCore.Hosting.Tests
         public void ShouldResolveService()
         {
             IWebHostBuilder builder = new WebHostBuilder()
-           .UseLightInject()           
+           .UseLightInject()
            .UseStartup<TestStartup>();
 
             using (var webHost = builder.Build())
@@ -27,7 +27,7 @@ namespace LightInject.Microsoft.AspNetCore.Hosting.Tests
         {
             IWebHostBuilder builder = new WebHostBuilder()
            .UseLightInject()
-           .ConfigureTestServices(sr => sr.AddTransient<IFoo, FooMock>())
+           .ConfigureTestContainer<IServiceContainer>(c => c.RegisterTransient<IFoo, FooMock>())
            .UseStartup<TestStartup>();
 
             using (var webHost = builder.Build())
