@@ -77,3 +77,28 @@ public class Startup
 ```
 
 > Note: Services registered in the `ConfigureServices` method will also be registered with **LightInject**
+
+## Test Services
+
+We can register test/mock services to be used when testing our controllers.
+
+```C#
+public void ShouldResolveMockedService()
+{
+    var builder = new WebHostBuilder()
+    .UseLightInject()
+    .ConfigureTestContainer<IServiceContainer>(c => c.RegisterTransient<IFoo, FooMock>())
+    .UseStartup<TestStartup>();
+
+    using (var webHost = builder.Build())
+    {
+        var foo = webHost.Services.GetRequiredService<IFoo>();
+        Assert.IsType<FooMock>(foo);
+    }
+}
+
+public class FooMock : IFoo { }
+```
+
+
+
