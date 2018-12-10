@@ -57,4 +57,21 @@ namespace LightInject.Microsoft.AspNetCore.Hosting
             return hostBuilder.ConfigureServices(services => services.AddSingleton<IServiceProviderFactory<IServiceContainer>>(sp => new LightInjectServiceProviderFactory(options)));
         }
     }
+
+    /// <summary>
+    /// Extends the <see cref="ContainerOptions"/> class.
+    /// </summary>
+    public static class ContainerOptionsExtensions
+    {
+        /// <summary>
+        /// Sets up the <see cref="ContainerOptions"/> to be compliant with the conventions used in Microsoft.Extensions.DependencyInjection.
+        /// </summary>
+        /// <param name="options">The target <see cref="ContainerOptions"/>.</param>
+        /// <returns><see cref="ContainerOptions"/>.</returns>
+        public static ContainerOptions WithAspNetCoreSettings(this ContainerOptions options)
+        {
+            options.EnableVariance = false;
+            return options;
+        }
+    }
 }

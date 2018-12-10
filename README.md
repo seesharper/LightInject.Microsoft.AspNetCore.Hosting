@@ -51,7 +51,7 @@ By declaring a method named `ConfigureContainer` we can get access to the `IServ
 ```c#
 public class Startup
     {
-        public TestStartup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -64,6 +64,7 @@ public class Startup
         }
 	    
     	// Use this method to add services directly to LightInject
+    	// Important: This method must exist in order to replace the default provider.
         public void ConfigureContainer(IServiceContainer container)
         {
             container.RegisterFrom<CompositionRoot>();
