@@ -37,6 +37,24 @@ namespace LightInject.Microsoft.AspNetCore.Hosting.Tests
             }
         }
 
+        [Fact]
+        public void ShouldUseExistingContainer()
+        {
+
+            var container = new ServiceContainer(ContainerOptions.Default.WithAspNetCoreSettings());
+
+            IWebHostBuilder builder = new WebHostBuilder()
+           .UseLightInject(container)
+           .UseStartup<TestStartup>();
+
+            using (var webHost = builder.Build())
+            {
+                var foo = webHost.Services.GetRequiredService<IFoo>();
+                Assert.IsType<Foo>(foo);
+            }
+        }
+
+
         public class FooMock : IFoo
         {
 

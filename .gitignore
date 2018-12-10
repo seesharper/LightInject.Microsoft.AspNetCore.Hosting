@@ -17,7 +17,7 @@ local.properties
 .loadpath
 Artifacts
 *.exe
-
+lcov.info
 # External tool builders
 .externalToolBuilders/
 
