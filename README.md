@@ -79,6 +79,16 @@ public class Startup
 
 > Note: Services registered in the `ConfigureServices` method will also be registered with **LightInject**
 
+
+
+## Controllers
+
+By default, controllers are not actually created by *LightInject*. They are created by the ASP.NET infrastructure and uses LightInject to resolve its dependencies. To enable LightInject to create the controller instances, we need to add the following line.
+
+```csharp
+services.AddMvc().AddControllersAsServices();
+```
+
 ## Test Services
 
 We can register test/mock services to be used when testing our controllers.
