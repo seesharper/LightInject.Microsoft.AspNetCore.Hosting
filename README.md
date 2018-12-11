@@ -51,7 +51,7 @@ By declaring a method named `ConfigureContainer` we can get access to the `IServ
 ```c#
 public class Startup
     {
-        public TestStartup(IConfiguration configuration)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -64,6 +64,7 @@ public class Startup
         }
 	    
     	// Use this method to add services directly to LightInject
+    	// Important: This method must exist in order to replace the default provider.
         public void ConfigureContainer(IServiceContainer container)
         {
             container.RegisterFrom<CompositionRoot>();
@@ -77,6 +78,16 @@ public class Startup
 ```
 
 > Note: Services registered in the `ConfigureServices` method will also be registered with **LightInject**
+
+
+
+## Controllers
+
+By default, controllers are not actually created by *LightInject*. They are created by the ASP.NET infrastructure and uses LightInject to resolve its dependencies. To enable LightInject to create the controller instances, we need to add the following line.
+
+```csharp
+services.AddMvc().AddControllersAsServices();
+```
 
 ## Test Services
 

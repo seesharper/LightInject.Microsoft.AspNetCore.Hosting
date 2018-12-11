@@ -9,11 +9,21 @@
       <RepositoryUrl>https://github.com/seesharper/LightInject.Microsoft.AspNetCore.Hosting</RepositoryUrl>
       <RepositoryType>git</RepositoryType>
       <PackageTags>Ioc Dependency-Injection Inversion-of-Control LightInject AspNetCore</PackageTags>
-      <DebugType>Full</DebugType>
-      <Version>1.0.0</Version>
+      <DebugSymbols>true</DebugSymbols>
+      <DebugType>portable</DebugType>
+      <GenerateDocumentationFile>true</GenerateDocumentationFile>
+      <Version>1.1.0</Version>
+      <PublishRepositoryUrl>true</PublishRepositoryUrl>
+      <EmbedUntrackedSources>true</EmbedUntrackedSources>
+      <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.1.1" />
-    <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="2.1.1" />      
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0" />
+    <PackageReference Include="LightInject.Microsoft.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.1-beta.61">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All"/>
   </ItemGroup>
 </Project>
