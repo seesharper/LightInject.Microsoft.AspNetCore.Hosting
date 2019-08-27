@@ -1,5 +1,7 @@
 ## LightInject.Microsoft.AspNetCore.Hosting
 
+[![Nuget](http://img.shields.io/nuget/v/LightInject.Microsoft.AspNetCore.Hosting.svg?maxAge=10800)](https://www.nuget.org/packages/LightInject.Microsoft.AspNetCore.Hosting/) 
+
 Enables **LightInject** to be used as the service container in AspNetCore applications
 
 ## Installing
