@@ -37,6 +37,7 @@
 
 namespace LightInject.Microsoft.AspNetCore.Hosting
 {
+    using System;
     using global::Microsoft.AspNetCore.Hosting;
     using global::Microsoft.Extensions.DependencyInjection;
     using LightInject.Microsoft.DependencyInjection;
@@ -75,7 +76,22 @@ namespace LightInject.Microsoft.AspNetCore.Hosting
         /// <returns>The <see cref="IWebHostBuilder"/> configured to use LightInject.</returns>
         public static IWebHostBuilder UseLightInject(this IWebHostBuilder hostBuilder, ContainerOptions options)
         {
-            return hostBuilder.ConfigureServices(services => services.AddSingleton<IServiceProviderFactory<IServiceContainer>>(sp => new LightInjectServiceProviderFactory(options.WithAspNetCoreSettings())));
+            var clonedOptions = options.Clone();
+            clonedOptions.WithAspNetCoreSettings();
+            return hostBuilder.ConfigureServices(services => services.AddSingleton<IServiceProviderFactory<IServiceContainer>>(sp => new LightInjectServiceProviderFactory(clonedOptions)));
+        }
+
+        /// <summary>
+        /// Configures the <paramref name="hostBuilder"/> to use LightInject as the service container.
+        /// </summary>
+        /// <param name="hostBuilder">The target <see cref="IWebHostBuilder"/>.</param>
+        /// <param name="configureOptions">A delegate used to configure <see cref="ContainerOptions"/>.</param>
+        /// <returns>The <see cref="IWebHostBuilder"/> configured to use LightInject.</returns>
+        public static IWebHostBuilder UseLightInject(this IWebHostBuilder hostBuilder, Action<ContainerOptions> configureOptions)
+        {
+            var options = ContainerOptions.Default.Clone().WithMicrosoftSettings().WithAspNetCoreSettings();
+            configureOptions(options);
+            return hostBuilder.ConfigureServices(services => services.AddSingleton<IServiceProviderFactory<IServiceContainer>>(sp => new LightInjectServiceProviderFactory(options)));
         }
     }
 
