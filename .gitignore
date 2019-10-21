@@ -18,6 +18,8 @@ local.properties
 Artifacts
 *.exe
 lcov.info
+dotnet-script-tool/
+
 # External tool builders
 .externalToolBuilders/
 
