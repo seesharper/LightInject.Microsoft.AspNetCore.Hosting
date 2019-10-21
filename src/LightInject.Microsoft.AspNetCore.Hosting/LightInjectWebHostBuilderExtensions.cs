@@ -21,7 +21,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 ******************************************************************************
-    LightInject.Microsoft.AspNetCore.Hosting version 2.0.0
+    LightInject.Microsoft.AspNetCore.Hosting version 2.2.0
     http://www.lightinject.net/
     http://twitter.com/bernhardrichter
 ******************************************************************************/
