@@ -4,6 +4,8 @@
 
 Enables **LightInject** to be used as the service container in AspNetCore applications
 
+> Note: This package is meant to be used for Asp.Net Core 2.2 applications. For Asp.Net Core > 3.0, the [LightInject.Microsoft.Hosting](https://www.nuget.org/packages/LightInject.Microsoft.Hosting/) package should be used.
+
 ## Installing
 
 ```xml
