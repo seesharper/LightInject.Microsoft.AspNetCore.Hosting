@@ -1,7 +1,7 @@
 ﻿/*********************************************************************************
     The MIT License (MIT)
 
-    Copyright (c) 2019 bernhard.richter@gmail.com
+    Copyright (c) 2020 bernhard.richter@gmail.com
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,7 @@
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 ******************************************************************************
-    LightInject.Microsoft.AspNetCore.Hosting version 2.2.0
+    LightInject.Microsoft.AspNetCore.Hosting version 2.3.2
     http://www.lightinject.net/
     http://twitter.com/bernhardrichter
 ******************************************************************************/
@@ -53,9 +53,7 @@ namespace LightInject.Microsoft.AspNetCore.Hosting
         /// <param name="hostBuilder">The target <see cref="IWebHostBuilder"/>.</param>
         /// <returns>The <see cref="IWebHostBuilder"/> configured to use LightInject.</returns>
         public static IWebHostBuilder UseLightInject(this IWebHostBuilder hostBuilder)
-        {
-            return hostBuilder.UseLightInject(ContainerOptions.Default);
-        }
+            => hostBuilder.UseLightInject(ContainerOptions.Default);
 
         /// <summary>
         /// Configures the <paramref name="hostBuilder"/> to use LightInject as the service container.
@@ -64,9 +62,7 @@ namespace LightInject.Microsoft.AspNetCore.Hosting
         /// <param name="serviceContainer">The <see cref="IServiceContainer"/> to be used.</param>
         /// <returns>The <see cref="IWebHostBuilder"/> configured to use LightInject.</returns>
         public static IWebHostBuilder UseLightInject(this IWebHostBuilder hostBuilder, IServiceContainer serviceContainer)
-        {
-            return hostBuilder.ConfigureServices(services => services.AddSingleton<IServiceProviderFactory<IServiceContainer>>(sp => new LightInjectServiceProviderFactory(serviceContainer)));
-        }
+            => hostBuilder.ConfigureServices(services => services.AddSingleton<IServiceProviderFactory<IServiceContainer>>(sp => new LightInjectServiceProviderFactory(serviceContainer)));
 
         /// <summary>
         /// Configures the <paramref name="hostBuilder"/> to use LightInject as the service container.
